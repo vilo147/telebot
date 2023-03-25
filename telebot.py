@@ -16,7 +16,6 @@ keyboard.add(KeyboardButton("Activity"))
 keyboard.add(KeyboardButton("University"))
 
 val=0
-print(val)
 @bot.message_handler(commands=["help","start"])
 def send_welcome(message):
     bot.send_message(message.chat.id, "Lets start! This bot was created by Egupec Vladislave. It need only for pastimes and it can do many things.  you can click any button from keyboard.", reply_markup=keyboard)
@@ -40,7 +39,6 @@ def say_hello(message):
                     elif(c=="/"):
                         bot.send_message(message.chat.id,int(f)/int(s)) 
                     val=0
-                    print(val)
                 except ZeroDivisionError:
                    bot.send_message(message.chat.id, "I'm sorry. I think you'r example have a mistake, so I'll give you a fox image")
                    bot.send_photo(message.chat.id, get_fox())
@@ -48,7 +46,6 @@ def say_hello(message):
 @bot.message_handler(func=lambda s: "Activity" in s.text)
 def give_act(message):
     act=requests.get('https://www.boredapi.com/api/activity').json()
-    print(act)
     bot.send_message(message.chat.id, f"{act['activity']}, its '{act['type']}' activity which you can do easely")
 @bot.message_handler(regexp=r"University")
 def University(message):
@@ -63,7 +60,6 @@ def University(message):
                     "country":message.text
                 }
                 find=requests.get('http://universities.hipolabs.com/search',params).json()
-                print(find)
                 try:
                     for i in range(5):
                       bot.send_message(message.chat.id, find[i]['name'])
