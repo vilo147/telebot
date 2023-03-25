@@ -5,7 +5,7 @@ def get_fox():
     response=requests.get('https://randomfox.ca/floof/').json()
     return response["image"]
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
-TOKEN="1193716664:AAEqEQ4_geLomHLVMFaGhdnIH1XoyHtVkgA"
+TOKEN=""
 bot=telebot.TeleBot(TOKEN)
 keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
 
